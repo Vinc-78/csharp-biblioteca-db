@@ -17,13 +17,14 @@ namespace csharp_biblioteca_db
         public List<Autore> Autori { get; set; }
         public Scaffale Scaffale { get; set; }
 
-        public Documento(string Codice, string Titolo, int Anno, string Settore)
+        public Documento(string Codice, string Titolo, int Anno, string Settore, string nomeSCaffale)
         {
             this.Codice = Codice;
             this.Titolo = Titolo;
             this.Settore = Settore;
             this.Autori = new List<Autore>();
             this.Stato = Stato.Disponibile;
+            this.Scaffale = new Scaffale(nomeSCaffale);
         }
 
         public override string ToString()

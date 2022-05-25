@@ -12,8 +12,24 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
            // b.AggiungiScaffale("s002");
            // b.AggiungiScaffale("s003");
 
+            b.ScaffaliBiblioteca.ForEach(item => Console.WriteLine(item.Numero));  //stampa la lista degli scaffali
+
+
+            //passiamo ai libri e agli autori
+
+            Libro l1 = new Libro("ISBN1", "Titolo 1", 2009, "Storia", 220, "s001"); //add libro e documento
+
+            Autore a1 = new Autore("Nome 1", "Cognome 1");
+
+            l1.Autori.Add(a1);
+
+
+
+
+
             Console.WriteLine("Lista operazione: ");
             Console.WriteLine("\t1 : cercaLibro per Autore ");
+            Console.WriteLine("\t2 : Inserisci scaffale ");
             Console.WriteLine("Cosa vuoi fare ?");
 
             string sAppo = Console.ReadLine();
@@ -21,7 +37,8 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
             while (sAppo != "")
 
             {
-                if (sAppo == "1") b.GestisciOperazioneBiblioteca(1); 
+                if (sAppo == "1") b.GestisciOperazioneBiblioteca(1);
+                else if (sAppo == "2") b.GestisciOperazioneBiblioteca(2);
             }
 
             /*

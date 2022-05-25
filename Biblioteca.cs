@@ -17,13 +17,21 @@ namespace csharp_biblioteca_db
         {
             this.Nome = Nome;
             this.ScaffaliBiblioteca = new List<Scaffale>();
+
+            List<string> elencoScaffali = DB.scaffaliGet();
+
+            elencoScaffali.ForEach(item =>
+            {
+                Scaffale nuovo = new Scaffale(item);
+                this.ScaffaliBiblioteca.Add(nuovo);
+            });
             
         }
 
         public void AggiungiScaffale(string nomescaffale)
 
         {
-            Scaffale nuovo = new Scaffale(nomescaffale);
+            Scaffale nuovo = new Scaffale(nomescaffale);  //aggiunge alla lista
             this.ScaffaliBiblioteca.Add(nuovo);
             
             DB.scaffaleAdd(nomescaffale);    //aggiunge le righe dello scaffale nel db        
@@ -44,6 +52,17 @@ namespace csharp_biblioteca_db
                         return 1;   //da implementare uscita da inserimento autore
                     else
                         StampaListaDocumenti(lResult);
+                    break;
+
+                case 2:
+                    Console.WriteLine("inserisci il codice dello scafalle tipo s000");
+                    Console.WriteLine("clicca invio per uscire");
+                    sAppo = Console.ReadLine();
+                    if (sAppo != "") { AggiungiScaffale(sAppo); }
+                    else { Console.WriteLine("non hai scritto nulla");
+                        Environment.Exit(1);
+                       
+                    }
                     break;
 
             }
