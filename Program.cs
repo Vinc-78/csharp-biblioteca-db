@@ -8,9 +8,9 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
         {
             Biblioteca b = new Biblioteca("Civica");
 
-            b.AggiungiScaffale("s001");
-            b.AggiungiScaffale("s002");
-            b.AggiungiScaffale("s003");
+           // b.AggiungiScaffale("s001"); dati già inseriti quindi ho commentato la riga
+           // b.AggiungiScaffale("s002");
+           // b.AggiungiScaffale("s003");
 
             Console.WriteLine("Lista operazione: ");
             Console.WriteLine("\t1 : cercaLibro per Autore ");
@@ -18,7 +18,7 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
 
             string sAppo = Console.ReadLine();
 
-            while (sAppo != null)
+            while (sAppo != "")
 
             {
                 if (sAppo == "1") b.GestisciOperazioneBiblioteca(1); 

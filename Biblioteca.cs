@@ -24,8 +24,10 @@ namespace csharp_biblioteca_db
 
         {
             Scaffale nuovo = new Scaffale(nomescaffale);
-
             this.ScaffaliBiblioteca.Add(nuovo);
+            
+            DB.scaffaleAdd(nomescaffale);    //aggiunge le righe dello scaffale nel db        
+                
         }
 
         public int GestisciOperazioneBiblioteca(int iCodiceOperazione)
