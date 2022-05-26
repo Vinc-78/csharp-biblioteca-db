@@ -10,16 +10,17 @@ namespace csharp_biblioteca_db
     public class Autore : Persona
     {
         public string mail = "";
-        public int codiceAutore;
+        public long codiceAutore;
         public Autore(string Nome, string Cognome, string mail) : base(Nome, Cognome)
         {
             this.mail = mail;
             this.codiceAutore = GeneraCodiceAutore();
         }
 
-        public int GeneraCodiceAutore() 
+        public long GeneraCodiceAutore() 
         {
-            return 1000 + this.Nome.Length + this.Cognome.Length + this.mail.Length; //da implementare la funzione
+            //return 1000 + this.Nome.Length + this.Cognome.Length + this.mail.Length; //da implementare la funzione
+            return DB.GetUnicoId();
         }
     }
 }
