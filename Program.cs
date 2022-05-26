@@ -8,7 +8,7 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
         {
             Biblioteca b = new Biblioteca("Civica");
 
-           // b.AggiungiScaffale("s001"); dati già inseriti quindi ho commentato la riga
+           // b.AggiungiScaffale("s001"); dati già inseriti quindi ho commentato le righe
            // b.AggiungiScaffale("s002");
            // b.AggiungiScaffale("s003");
 
@@ -16,22 +16,21 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
 
 
             //passiamo all'inserimento dei libri e agli autori
+            //prova in program / elementi da passare all'interfaccia poi all'interfaccia
+            // elementi commentati perchè già inseriti nel db
+            // e implementata l'interfaccia
 
-            List<Autore> lAutoriLibro = new List<Autore>();
-
-            Autore AutoreMioLibro = new Autore("Gianni","Rivera","email@email.it");
-
-            lAutoriLibro.Add(AutoreMioLibro);
-
-
-            b.AggiungiLibro(2, "Promessi Sposi", "Romanzo", 235, "s001", lAutoriLibro);
-
+            //List<Autore> lAutoriLibro = new List<Autore>();
+            // Autore AutoreMioLibro = new Autore("Gianni","Rivera","email@email.it");
+            //lAutoriLibro.Add(AutoreMioLibro);
+            // b.AggiungiLibro(0001, "Promessi Sposi", "Romanzo", 235, "s001", lAutoriLibro);
 
 
-            // inizio parte dell'interfaccia
+
+            // inizio parte dell'interfaccia console
 
             Console.WriteLine("Lista operazione: ");
-            Console.WriteLine("\t1 : cercaLibro per Autore ");
+            Console.WriteLine("\t1 : inserisci libro e auotre ");
             Console.WriteLine("\t2 : Inserisci scaffale ");
             Console.WriteLine("Cosa vuoi fare ?");
 

@@ -131,7 +131,7 @@ namespace csharp_biblioteca_db
             // insert into documenti
             
             var cmd = String.Format(@"insert into Documenti(Codice,Titolo,Settore,Stato,Tipo,Scaffale)
-                values {0},'{1},'{2},'{3},'libro','{4}'", libro.Codice,libro.Titolo,libro.Settore,libro.Stato.ToString(),libro.Scaffale.Numero);
+                values ({0},'{1}','{2}','{3}','libro','{4}')", libro.Codice,libro.Titolo,libro.Settore,libro.Stato.ToString(),libro.Scaffale.Numero);
 
             using (SqlCommand insert = new SqlCommand(cmd, conn))
             {
@@ -176,9 +176,9 @@ namespace csharp_biblioteca_db
             foreach (Autore autore in listaAutori)
             {
 
-                var cmd2 = String.Format(@"insert into Autori(Nome,Cognome,mail) values('{0}','{1}','{2}')",autore.Nome, autore.Cognome, autore.mail);
+                var cmd2 = String.Format(@"insert into Autori(codice,Nome,Cognome,mail) values({0},'{1}','{2}','{3}')",autore.codiceAutore,autore.Nome, autore.Cognome, autore.mail);
 
-                using (SqlCommand insert = new SqlCommand(cmd1, conn))
+                using (SqlCommand insert = new SqlCommand(cmd2, conn))
                 {
                     try
                     {
@@ -205,7 +205,7 @@ namespace csharp_biblioteca_db
             {
                 var cmd3 = String.Format(@"insert into Autori_documenti(codice_autore,codice_documento) values({0},{1})",autore.codiceAutore, libro.Codice );
 
-                using (SqlCommand insert = new SqlCommand(cmd1, conn))
+                using (SqlCommand insert = new SqlCommand(cmd3, conn))
                 {
                     try
                     {
