@@ -38,13 +38,21 @@ namespace csharp_biblioteca_db
                 
         }
 
+        public void AggiungiLibro(int codice, string titolo, string settore, int pagine, string scaffale, List<Autore>listaAutori)
+        {
+            Libro MioLibro = new(codice,titolo, settore, pagine, scaffale);
+            MioLibro.Stato = Stato.Disponibile;
+            DB.libroAdd(MioLibro, listaAutori);
+        
+        }
+
         public int GestisciOperazioneBiblioteca(int iCodiceOperazione)
         {
             List<Documento> lResult;
             string sAppo;
             switch (iCodiceOperazione)
             {
-                case 1:
+                case 1: //Da modificare a seguito l'inserimento di Libro /Documento/ Autori in db
                     Console.WriteLine("inserisci autore");
                     sAppo = Console.ReadLine();
                     lResult =SearchByAutore(sAppo);

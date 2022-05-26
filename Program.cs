@@ -15,17 +15,20 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
             b.ScaffaliBiblioteca.ForEach(item => Console.WriteLine(item.Numero));  //stampa la lista degli scaffali
 
 
-            //passiamo ai libri e agli autori
+            //passiamo all'inserimento dei libri e agli autori
 
-            Libro l1 = new Libro("ISBN1", "Titolo 1", 2009, "Storia", 220, "s001"); //add libro e documento
+            List<Autore> lAutoriLibro = new List<Autore>();
 
-            Autore a1 = new Autore("Nome 1", "Cognome 1");
+            Autore AutoreMioLibro = new Autore("Gianni","Rivera","email@email.it");
 
-            l1.Autori.Add(a1);
-
-
+            lAutoriLibro.Add(AutoreMioLibro);
 
 
+            b.AggiungiLibro(2, "Promessi Sposi", "Romanzo", 235, "s001", lAutoriLibro);
+
+
+
+            // inizio parte dell'interfaccia
 
             Console.WriteLine("Lista operazione: ");
             Console.WriteLine("\t1 : cercaLibro per Autore ");

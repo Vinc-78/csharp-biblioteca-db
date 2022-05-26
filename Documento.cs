@@ -9,15 +9,14 @@ namespace csharp_biblioteca_db
     public enum Stato { Disponibile, Prestito }
     public class Documento
     {
-        public string Codice { get; set; }
+        public int Codice { get; set; }
         public string Titolo { get; set; }
-        public int Anno { get; set; }
         public string Settore { get; set; }
         public Stato Stato { get; set; }
         public List<Autore> Autori { get; set; }
         public Scaffale Scaffale { get; set; }
 
-        public Documento(string Codice, string Titolo, int Anno, string Settore, string nomeSCaffale)
+        public Documento(int Codice, string Titolo, string Settore, string nomeSCaffale)
         {
             this.Codice = Codice;
             this.Titolo = Titolo;
