@@ -118,7 +118,7 @@ namespace csharp_biblioteca_db
             return ld;
         }
 
-        // addLibro aggiunge sia in documenti che in Libri  //da implementare ancora!!!!
+        // addLibro aggiunge sia in documenti che in Libri  
         
         internal static int libroAdd(Libro libro, List<Autore>listaAutori)
         {
