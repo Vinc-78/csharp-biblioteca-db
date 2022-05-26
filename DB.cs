@@ -22,7 +22,8 @@ namespace csharp_biblioteca_db
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    return null;
+                    conn.Close();
+                    
                 }
                 return conn;
             
@@ -61,8 +62,30 @@ namespace csharp_biblioteca_db
         
         }
 
-        //metodo per leggere e caricare i dati in una lista di appoggio
-        internal static List<string> scaffaliGet()
+        // metodo per gestire un codice unico tramite una tabella di dedicata
+        internal static long GetUnicoId()
+        {
+            var conn = Connect();
+            if (conn == null)
+                throw new Exception("Unable to connect to the dabatase");
+            
+            string cmd = "UPDATE CodiceUnico SET Codice = Codice + 1 OUTPUT INSERTED.Codice";
+            long id;
+            using (SqlCommand select = new SqlCommand(cmd, conn))
+            {
+                using (SqlDataReader reader = select.ExecuteReader())
+                {
+                    reader.Read();
+                    id = reader.GetInt64(0);
+                }
+            }
+            conn.Close();
+            return id;
+        }
+    
+
+    //metodo per leggere e caricare i dati in una lista di appoggio
+    internal static List<string> scaffaliGet()
         { 
             List<string> scaffali = new List<string>();
 
@@ -152,14 +175,14 @@ namespace csharp_biblioteca_db
                 
             }
 
-            var cmd1 = String.Format(@"insert into LIbri(Codice,NumPagine) values ({0},{1})", libro.Codice,libro.NumeroPagine);
+            var cmd1 = String.Format(@"insert into Libri(Codice,NumPagine) values ({0},{1})", libro.Codice,libro.NumeroPagine);
 
             using (SqlCommand insert = new SqlCommand(cmd1, conn))
             {
                 try
                 {
                     var numrows = insert.ExecuteNonQuery();
-                    if (numrows != 1) { throw new Exception("Insert in documenti non andato"); }
+                    if (numrows != 1) { throw new Exception("Insert in Libri non andato"); }
 
                     
                 }
@@ -183,7 +206,7 @@ namespace csharp_biblioteca_db
                     try
                     {
                         var numrows = insert.ExecuteNonQuery();
-                        if (numrows != 1) { throw new Exception("Insert in documenti non andato"); }
+                        if (numrows != 1) { throw new Exception("Insert in Autore non andato"); }
 
                         
                     }
@@ -210,7 +233,7 @@ namespace csharp_biblioteca_db
                     try
                     {
                         var numrows = insert.ExecuteNonQuery();
-                        if (numrows != 1) { throw new Exception("Insert in documenti non andato"); }
+                        if (numrows != 1) { throw new Exception("Insert in Autori_documenti non andato"); }
 
                         
                     }

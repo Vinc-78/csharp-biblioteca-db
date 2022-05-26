@@ -104,47 +104,5 @@ namespace csharp_biblioteca_db
         }
 
 
-        public void StampaListaDocumenti(List<Documento> lListDoc)
-        {
-            // da implementare  
-        }
-
-        public List<Documento> SearchByCodice(string Codice)
-        {
-            Console.WriteLine("Metodo da implementare");
-            return null;   
-        }
-
-        public List<Documento> SearchByTitolo(string Titolo)
-        {
-            Console.WriteLine("Metodo da implementare");
-            return null;
-            
-        }
-
-        public List<Documento> SearchByAutore(string Titolo)
-        {
-            Console.WriteLine("Metodo da implementare");
-
-            // connetti al db
-            // fare una query, quindi select titolo.scaffale, stato , tipo  from 
-            // documenti, autori_documenti,  inner join
-            // stampa 
-
-            return null;
-
-        }
-
-        public List<Prestito> SearchPrestiti(string Numero)
-        {
-            Console.WriteLine("Metodo da implementare");
-            return null;
-        }
-
-        public List<Prestito> SearchPrestiti(string Nome, string Cognome)
-        {
-            Console.WriteLine("Metodo da implementare");
-            return null; ;
-        }
     }
 }

@@ -34,13 +34,13 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
             Console.WriteLine("\t2 : Inserisci scaffale ");
             Console.WriteLine("Cosa vuoi fare ?");
 
-            string sAppo = Console.ReadLine();
+            string op = Console.ReadLine();
 
-            while (sAppo != "")
+            while (op != "")
 
             {
-                if (sAppo == "1") b.GestisciOperazioneBiblioteca(1);
-                else if (sAppo == "2") b.GestisciOperazioneBiblioteca(2);
+                if (op == "1") b.GestisciOperazioneBiblioteca(1);
+                else if (op == "2") b.GestisciOperazioneBiblioteca(2);
             }
 
             /*
