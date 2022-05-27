@@ -45,8 +45,17 @@ namespace csharp_biblioteca_db
             DB.libroAdd(MioLibro, listaAutori);
         
         }
+        public void AggiungiDvd(long codice, string titolo, string settore, int durata, string scaffale, List<Autore> listaAutori)
+        {
+            DVD MioDvd = new(codice,titolo,settore, durata, scaffale);
+            
+            MioDvd.Stato = Stato.Disponibile;
 
-        public int GestisciOperazioneBiblioteca(int iCodiceOperazione)
+            DB.DVDAdd(MioDvd, listaAutori);
+
+        }
+
+        public void GestisciOperazioneBiblioteca(int iCodiceOperazione)
         {
             List<Documento> lResult;
             string sAppo;
@@ -56,12 +65,34 @@ namespace csharp_biblioteca_db
                         //e aggiornare repo su Vinc-78
 
                     Console.WriteLine("inserisci i dati o l'inserimento non funziona");
-                    Console.WriteLine("inserisci nome autore :");
-                    string nomeAutore = Console.ReadLine();
-                    Console.WriteLine("inserisci cognome autore :");
-                    string cognomeAutore = Console.ReadLine();
-                    Console.WriteLine("inserisci email autore :");
-                    string emailAutore = Console.ReadLine();
+                    Biblioteca b = new Biblioteca("Civica");
+                    int numeroAutori = 0;
+                    string snumeroAutori;
+                    List<Autore> lAutoriLibro = new List<Autore>();
+
+                    Console.WriteLine("Quanti autori ha il libro ?");
+                    snumeroAutori = Console.ReadLine();
+                    numeroAutori = Int32.Parse(snumeroAutori);
+
+                    for (int i = 0; i < numeroAutori; i++)
+
+                    {
+                        Console.WriteLine("inserisci nome autore :");
+                        string nomeAutore = Console.ReadLine();
+                        Console.WriteLine("inserisci cognome autore :");
+                        string cognomeAutore = Console.ReadLine();
+                        Console.WriteLine("inserisci email autore :");
+                        string emailAutore = Console.ReadLine();
+
+                        Autore AutoreMioLibro = new Autore(nomeAutore, cognomeAutore, emailAutore);
+                        lAutoriLibro.Add(AutoreMioLibro);
+                    }
+
+                    Console.WriteLine("Autori inseriti");
+
+
+
+
                     Console.WriteLine("-------------------");
                     Console.WriteLine("inserisci codice libro :");
                     string scodiceLibro = Console.ReadLine();
@@ -76,11 +107,7 @@ namespace csharp_biblioteca_db
                     Console.WriteLine("inserisci numero scaffale libro :");
                     string scaffaleLibro = Console.ReadLine();
 
-
-                    Biblioteca b = new Biblioteca("Civica");
-                    List<Autore> lAutoriLibro = new List<Autore>();
-                    Autore AutoreMioLibro = new Autore(nomeAutore,cognomeAutore,emailAutore);
-                    lAutoriLibro.Add(AutoreMioLibro);
+                    
                     b.AggiungiLibro(codiceLibro, titoloLibro, settoreLibro, pagLibro, scaffaleLibro, lAutoriLibro);
 
                     Console.WriteLine("----------------------");
@@ -99,8 +126,14 @@ namespace csharp_biblioteca_db
                     }
                     break;
 
+                case 3:
+
+                    DB.StampaLibriAutori();
+
+                    break;
+
             }
-            return 0;
+            
         }
 
 

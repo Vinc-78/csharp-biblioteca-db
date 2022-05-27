@@ -21,9 +21,20 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
             // e implementata l'interfaccia
 
             //List<Autore> lAutoriLibro = new List<Autore>();
-            // Autore AutoreMioLibro = new Autore("Gianni","Rivera","email@email.it");
+            //Autore AutoreMioLibro = new Autore("Gianni","Rivera","email@email.it");
+            //Autore AutoreMioLibro2 = new Autore("Luca", "Rossi", "luca@email.it");
             //lAutoriLibro.Add(AutoreMioLibro);
-            // b.AggiungiLibro(0001, "Promessi Sposi", "Romanzo", 235, "s001", lAutoriLibro);
+            //lAutoriLibro.Add(AutoreMioLibro2);
+            //b.AggiungiLibro(0003, "I malavoglia", "Romanzo", 235, "s003", lAutoriLibro);
+
+
+            //test per libro
+            //caricati in db li ho commentati
+            //List<Autore> lAutori = new List<Autore>();
+            //Autore AutoreMioDvd = new Autore("Dj", "Rivera", "riveradj@email.it");
+            //b.AggiungiDvd(006, "Musica da Camera", "hard Rock", 360, "S003",lAutori);
+
+
 
 
 
@@ -32,6 +43,7 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
             Console.WriteLine("Lista operazione: ");
             Console.WriteLine("\t1 : inserisci libro e auotre ");
             Console.WriteLine("\t2 : Inserisci scaffale ");
+            Console.WriteLine("\t3 : Stampa ListaLibri e Autori ");
             Console.WriteLine("Cosa vuoi fare ?");
 
             string op = Console.ReadLine();
@@ -41,6 +53,7 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
             {
                 if (op == "1") b.GestisciOperazioneBiblioteca(1);
                 else if (op == "2") b.GestisciOperazioneBiblioteca(2);
+                else if (op == "3") b.GestisciOperazioneBiblioteca(3);
             }
 
             /*
