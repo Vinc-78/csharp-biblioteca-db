@@ -44,6 +44,7 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
             Console.WriteLine("\t1 : inserisci libro e auotre ");
             Console.WriteLine("\t2 : Inserisci scaffale ");
             Console.WriteLine("\t3 : Stampa ListaLibri e Autori ");
+            Console.WriteLine("\t4 : Cerca per autore ");
             Console.WriteLine("Cosa vuoi fare ?");
 
             string op;
@@ -54,6 +55,7 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
                 if (op == "1") b.GestisciOperazioneBiblioteca(1);
                 else if (op == "2") b.GestisciOperazioneBiblioteca(2);
                 else if (op == "3") b.GestisciOperazioneBiblioteca(3);
+                else if (op == "4") b.GestisciOperazioneBiblioteca(4);
             }
 
             /*

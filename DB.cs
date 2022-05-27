@@ -666,13 +666,19 @@ namespace csharp_biblioteca_db
         }
 
 
-        internal static void StampaLibriAutori() 
+        internal static void StampaLibriAutori(List<List<string>> lista) 
         {
+            // nel caso in cui le query non ritornano alcun valore, mi ritorna il messaggio
+            // che non ci sono documenti
 
-            var dati = new List<List<string>>();
-            dati = libriConAutoriGet();
+            if (lista.Count == 0) 
+            {
+                Console.WriteLine();
+                Console.WriteLine("Non ci sono documenti con la tua ricerca");
+                Console.WriteLine("----------------------------------------");
+            }
 
-            foreach (var item in dati) 
+            foreach (var item in lista) 
             {
                 
                     Console.WriteLine(string.Format(@"Codice Libro: {0},Numero Pagine: {1},Titolo: {2},Settore: {3}, 
@@ -699,8 +705,11 @@ namespace csharp_biblioteca_db
                                         where Autori.Nome = '{0}' and Autori.Cognome = '{1}'",nome, cognome);
 
 
+
             using (SqlCommand select = new SqlCommand(cmd, conn))
             {
+                
+
                 using (SqlDataReader reader = select.ExecuteReader())
 
                 {

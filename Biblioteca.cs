@@ -128,7 +128,30 @@ namespace csharp_biblioteca_db
 
                 case 3:
 
-                    DB.StampaLibriAutori();
+                    DB.StampaLibriAutori(DB.libriConAutoriGet());
+
+                    break;
+
+                case 4:
+
+                    string nome;
+                    string cognome;
+                    Console.WriteLine("Inserisci nome dell'autore :");
+                    nome =Console.ReadLine();
+
+                    Console.WriteLine("Inserisci cognome dell'autore : ");
+                    cognome = Console.ReadLine();
+
+                    Console.WriteLine("I documenti relativi al tuo autore sono: ");
+
+                    var lista = new List<List<string>>();
+
+                    lista = DB.RicercaPerAutore(nome, cognome);
+
+                    DB.StampaLibriAutori(lista);
+
+                    Console.WriteLine("---------------------");
+
 
                     break;
 
