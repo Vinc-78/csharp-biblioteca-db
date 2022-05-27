@@ -46,9 +46,9 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
             Console.WriteLine("\t3 : Stampa ListaLibri e Autori ");
             Console.WriteLine("Cosa vuoi fare ?");
 
-            string op = Console.ReadLine();
+            string op;
 
-            while (op != "")
+            while ((op = Console.ReadLine()) != "")
 
             {
                 if (op == "1") b.GestisciOperazioneBiblioteca(1);

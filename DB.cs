@@ -652,9 +652,12 @@ namespace csharp_biblioteca_db
 
        
                        data.Add(ls);
+                       
                     }
+                   
                 }
             }
+           
             conn.Close();
 
 
@@ -671,13 +674,12 @@ namespace csharp_biblioteca_db
 
             foreach (var item in dati) 
             {
-                foreach (var item2 in item)
-                {
+                
                     Console.WriteLine(string.Format(@"Codice Libro: {0},Numero Pagine: {1},Titolo: {2},Settore: {3}, 
                         Stato:{4}, Scaffale {5}, Codice Autore {6}, Nome Autore {7}, Cognome Autore {8}, Mail Autore {9} ",
                         item[0], item[1], item[3], item[4], item[5], item[7], item[8], item[11], item[12],item[13]));
 
-                }
+                
             }
 
         }
