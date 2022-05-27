@@ -6,6 +6,8 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
     {
         static void Main(string[] args)
         {
+            // da non eseguire piùPopolaDB(); //metodo inserito per popolare un db da file
+
             Biblioteca b = new Biblioteca("Civica");
 
            // b.AggiungiScaffale("s001"); dati già inseriti quindi ho commentato le righe
@@ -86,14 +88,13 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
                     }
                     catch (Exception ex)
                     {
+                        cognome = "nn";
                         Console.WriteLine(ex.Message);
                     }
                     string titolo = vett[1];
                     List<Autore> lAutoriLibro = new List<Autore>();
 
                     string email = nome + "@email.it";
-
-                    
 
                     Autore AutoreMioLibro = new Autore(nome, cognome, email);
                     lAutoriLibro.Add(AutoreMioLibro);
