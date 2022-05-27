@@ -69,6 +69,7 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
 
             static void PopolaDB() 
             {
+                Biblioteca b = new Biblioteca("Civica");
                 StreamReader reader = new StreamReader("elenco.txt");
                 string linea;
                 while ((linea = reader.ReadLine()) != null)
@@ -88,16 +89,21 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
                         Console.WriteLine(ex.Message);
                     }
                     string titolo = vett[1];
-                    Console.WriteLine("Nome: {0}, Cognome: {1}, Titolo: {2}", nome, cognome, titolo);
+                    List<Autore> lAutoriLibro = new List<Autore>();
+
+                    string email = nome + "@email.it";
+
+                    
+
+                    Autore AutoreMioLibro = new Autore(nome, cognome, email);
+                    lAutoriLibro.Add(AutoreMioLibro);
+
+                    b.AggiungiLibro(DB.GetUnicoId(), titolo, "Libro", 1, "s001", lAutoriLibro);
+
                 }
 
 
-                //List<Autore> lAutoriLibro = new List<Autore>();
-                //Autore AutoreMioLibro = new Autore("Gianni","Rivera","email@email.it");
-
-                //lAutoriLibro.Add(AutoreMioLibro);
-
-                //b.AggiungiLibro(0003, "I malavoglia", "Romanzo", 235, "s003", lAutoriLibro);
+                reader.Close();
 
             }
 
