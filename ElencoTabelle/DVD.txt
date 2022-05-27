@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[DVD] (
+    [codice] BIGINT NOT NULL,
+    [Durata] BIGINT NOT NULL,
+    PRIMARY KEY CLUSTERED ([codice] ASC),
+    CONSTRAINT [codice_key] FOREIGN KEY ([codice]) REFERENCES [dbo].[Documenti] ([codice])
+);

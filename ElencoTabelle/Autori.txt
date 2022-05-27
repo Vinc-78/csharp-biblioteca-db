@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Autori] (
+    [codice]  BIGINT        NOT NULL,
+    [Nome]    VARCHAR (255) NOT NULL,
+    [Cognome] VARCHAR (255) NOT NULL,
+    [mail]    VARCHAR (255) NULL,
+    PRIMARY KEY CLUSTERED ([codice] ASC),
+    CONSTRAINT [chivae_secondaria_autori] UNIQUE NONCLUSTERED ([Nome] ASC, [Cognome] ASC, [mail] ASC)
+);

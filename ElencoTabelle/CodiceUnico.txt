@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[CodiceUnico] (
+    [Codice] BIGINT NOT NULL,
+    PRIMARY KEY CLUSTERED ([Codice] ASC)
+);

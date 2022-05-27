@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[Documenti] (
+    [codice]   BIGINT        NOT NULL,
+    [Titolo]   VARCHAR (255) NOT NULL,
+    [Settore]  VARCHAR (255) NOT NULL,
+    [Stato]    VARCHAR (255) NOT NULL,
+    [Tipo]     VARCHAR (16)  NOT NULL,
+    [Scaffale] VARCHAR (255) NOT NULL,
+    PRIMARY KEY CLUSTERED ([codice] ASC),
+    CONSTRAINT [scaffale_key] FOREIGN KEY ([Scaffale]) REFERENCES [dbo].[Scaffale] ([Scaffale]),
+    CONSTRAINT [stato_key] CHECK ([Stato]='prestito' OR [Stato]='disponibile'),
+    CONSTRAINT [tipo_key] CHECK ([Tipo]='dvd' OR [Tipo]='libro')
+);

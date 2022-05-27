@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Utenti] (
+    [Id_tessera] BIGINT        IDENTITY (1, 1) NOT NULL,
+    [Nome]       VARCHAR (255) NOT NULL,
+    [Cognome]    VARCHAR (255) NOT NULL,
+    [Mail]       VARCHAR (255) NOT NULL,
+    [Telefono]   VARCHAR (255) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id_tessera] ASC),
+    CONSTRAINT [second_key] UNIQUE NONCLUSTERED ([Nome] ASC, [Cognome] ASC, [Mail] ASC)
+);

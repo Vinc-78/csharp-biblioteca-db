@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Eventi] (
+    [Id]                 INT      NOT NULL,
+    [dataevento]         DATETIME NULL,
+    [codicelibro]        BIGINT   NULL,
+    [svolto]             BIT      NOT NULL,
+    [numeropartecipanti] INT      DEFAULT ((0)) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+

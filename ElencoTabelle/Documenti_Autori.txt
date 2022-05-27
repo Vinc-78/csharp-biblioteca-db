@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Autori_documenti] (
+    [codice_autore]    BIGINT NOT NULL,
+    [codice_documento] BIGINT NOT NULL,
+    CONSTRAINT [chiave_primaria] PRIMARY KEY CLUSTERED ([codice_autore] ASC, [codice_documento] ASC),
+    CONSTRAINT [ref_documento] FOREIGN KEY ([codice_documento]) REFERENCES [dbo].[Documenti] ([codice]),
+    CONSTRAINT [ref_autore] FOREIGN KEY ([codice_autore]) REFERENCES [dbo].[Autori] ([codice])
+);

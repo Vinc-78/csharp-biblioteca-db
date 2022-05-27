@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Libri] (
+    [codice]    BIGINT NOT NULL,
+    [NumPagine] INT    NOT NULL,
+    PRIMARY KEY CLUSTERED ([codice] ASC),
+    CONSTRAINT [codice_key_Libro] FOREIGN KEY ([codice]) REFERENCES [dbo].[Documenti] ([codice])
+);

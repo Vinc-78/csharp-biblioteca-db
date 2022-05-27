@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Prestiti] (
+    [codice_prestito]      BIGINT NOT NULL,
+    [codice_documento]     BIGINT NOT NULL,
+    [tessera_utente]       BIGINT NOT NULL,
+    [data_inizio_prestito] DATE   NOT NULL,
+    [durata_in_giorni]     INT    NOT NULL,
+    PRIMARY KEY CLUSTERED ([codice_prestito] ASC),
+    CONSTRAINT [ref_documento_prestito] FOREIGN KEY ([codice_documento]) REFERENCES [dbo].[Documenti] ([codice]),
+    CONSTRAINT [ref_tessera_utente] FOREIGN KEY ([tessera_utente]) REFERENCES [dbo].[Utenti] ([Id_tessera])
+);
