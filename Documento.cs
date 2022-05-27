@@ -45,5 +45,7 @@ namespace csharp_biblioteca_db
         {
             this.Stato = Stato.Disponibile;
         }
+
+
     }
 }

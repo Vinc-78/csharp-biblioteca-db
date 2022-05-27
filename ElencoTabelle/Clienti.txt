@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Clienti] (
     [Id]          INT        IDENTITY (0, 1) NOT NULL,
-    [nomeclienti] NCHAR (10) NOT NULL,
-    [email]       NCHAR (10) NOT NULL,
+    [nomeclienti] VARCHAR(50) NOT NULL,
+    [email]       VARBINARY(50) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );

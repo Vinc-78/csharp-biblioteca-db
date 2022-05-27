@@ -6,7 +6,11 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
     {
         static void Main(string[] args)
         {
-            // da non eseguire piùPopolaDB(); //metodo inserito per popolare un db da file
+            // da non eseguire più PopolaDB(); //metodo inserito per popolare un db da file
+
+            // da non eseguire più PopolaClienti(); //metodo ha inserito i nomi e le email
+
+            
 
             Biblioteca b = new Biblioteca("Civica");
 
@@ -14,7 +18,7 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
            // b.AggiungiScaffale("s002");
            // b.AggiungiScaffale("s003");
 
-            b.ScaffaliBiblioteca.ForEach(item => Console.WriteLine(item.Numero));  //stampa la lista degli scaffali
+           // b.ScaffaliBiblioteca.ForEach(item => Console.WriteLine(item.Numero));  //stampa la lista degli scaffali
 
 
             //passiamo all'inserimento dei libri e agli autori
@@ -107,6 +111,33 @@ namespace csharp_biblioteca_db // Note: actual namespace depends on the project 
                 reader.Close();
 
             }
+
+            //metodo per popolare la tabella dei clienti
+            static void PopolaClienti()
+            {
+                
+                StreamReader reader = new StreamReader("email.txt");
+                string linea;
+                while ((linea = reader.ReadLine()) != null)
+                {
+                    //una linea ha solo un email
+                    string[] subs = linea.Split('@');
+                    
+
+                   // Console.WriteLine(subs[0] + " " + linea);
+                    DB.EmailClientiAdd(subs[0], linea);
+
+
+
+                }
+
+
+                reader.Close();
+
+            }
+
+
+            
 
         }
     }

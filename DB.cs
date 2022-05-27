@@ -748,5 +748,36 @@ namespace csharp_biblioteca_db
 
         }
 
+        internal static int EmailClientiAdd(string nome, string email)
+        {
+            var conn = DB.Connect();
+            if (conn == null)
+            {
+                throw new Exception("Non è possibile connettersi");
+            }
+
+            var cmd = String.Format($"insert into Cliente (nomeclienti, email) values ('{nome}','{email}')");
+
+            using (SqlCommand insert = new SqlCommand(cmd, conn))
+            {
+                try
+                {
+                    var numrows = insert.ExecuteNonQuery();
+                    return numrows;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+        }
+
     }
 }
